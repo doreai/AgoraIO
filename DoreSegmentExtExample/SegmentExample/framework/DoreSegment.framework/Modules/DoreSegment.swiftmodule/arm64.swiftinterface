@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DoreSegment
 import CoreImage
 import CoreML
@@ -37,12 +37,12 @@ public class segmentOut : CoreML.MLFeatureProvider {
   @objc public func init_data(sdk_key: Swift.String, license_key: Swift.String)
   @objc public func ImagetoPixelbuffer(from image: UIKit.UIImage) -> CoreVideo.CVPixelBuffer?
   @objc public func resizeBuffer(pixelBuffer: CoreVideo.CVPixelBuffer) -> CoreVideo.CVPixelBuffer?
-  @objc public func UIImageToPixelBuffer(input_image: UIKit.UIImage) -> CoreVideo.CVPixelBuffer?
   @objc public func PixelBufferFromCGImage(cImage: CoreGraphics.CGImage, width: Swift.Int, height: Swift.Int) -> CoreVideo.CVPixelBuffer?
   @objc public func CGImageFromContext(context: CoreGraphics.CGContext) -> CoreGraphics.CGImage?
   @objc public func maskImage(image: CoreGraphics.CGImage, withMask maskImage: CoreGraphics.CGImage) -> UIKit.UIImage
   @objc public func resize_image(image: UIKit.UIImage, tosize: CoreGraphics.CGSize) -> UIKit.UIImage
+  @objc public func ImageToPixelData(image: UIKit.UIImage) -> Foundation.Data?
   @objc public func run_model(pixelBuffer: CoreVideo.CVPixelBuffer, inputImage: UIKit.UIImage) -> UIKit.UIImage?
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
