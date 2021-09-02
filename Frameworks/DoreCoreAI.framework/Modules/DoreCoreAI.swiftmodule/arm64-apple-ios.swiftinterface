@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DoreCoreAI
 import AVFoundation
 import Accelerate
@@ -132,8 +132,8 @@ public class decode_manager {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers public class DoreDiggerDelegate : ObjectiveC.NSObject {
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension DoreDiggerDelegate : Foundation.URLSessionDataDelegate, Foundation.URLSessionDelegate {
   @objc dynamic public func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive response: Foundation.URLResponse, completionHandler: @escaping (Foundation.URLSession.ResponseDisposition) -> Swift.Void)
@@ -161,10 +161,10 @@ public enum CameraConfiguration {
   case failed
   case permissionDenied
   public static func == (a: DoreCoreAI.CameraConfiguration, b: DoreCoreAI.CameraConfiguration) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 @objc public class CameraFeedManager : ObjectiveC.NSObject {
   final public let session: AVFoundation.AVCaptureSession
@@ -193,8 +193,8 @@ public enum CameraConfiguration {
   @objc public func sessionWasInterrupted(notification: Foundation.Notification)
   @objc public func sessionInterruptionEnded(notification: Foundation.Notification)
   @objc public func sessionRuntimeErrorOccured(notification: Foundation.Notification)
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension CameraFeedManager : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @objc dynamic public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
@@ -352,9 +352,9 @@ public func top(_ k: Swift.Int, _ observations: [Vision.VNClassificationObservat
   @objc override dynamic public class var layerClass: Swift.AnyClass {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
 }
 public struct BoundingBox {
   public let classIndex: Swift.Int
@@ -382,19 +382,19 @@ public enum DoreDiggerError : Swift.Int {
   case invalidStatusCode
   case diskOutOfSpace
   case downloadCanceled
+  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
-  public init?(rawValue: Swift.Int)
 }
 public enum LogLevel {
   case high, low, none
   public static func == (a: DoreCoreAI.LogLevel, b: DoreCoreAI.LogLevel) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public func DorediggerLog<T>(_ info: T, file: Foundation.NSString = #file, method: Swift.String = #function, line: Swift.Int = #line)
 public protocol DoreDiggerURL {
